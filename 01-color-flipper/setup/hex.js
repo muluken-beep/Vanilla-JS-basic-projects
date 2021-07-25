@@ -19,6 +19,7 @@ const color = document.querySelector(".color");
 
 btn.addEventListener('click', function(){
 let hexColor = '#';
+
 for(let i =0; i< 6; i++){
   let randomNumber = getRandomNumber();
   let randomColor = hex[randomNumber];
@@ -27,8 +28,6 @@ for(let i =0; i< 6; i++){
 
 document.body.style.backgroundColor = hexColor;
 color.textContent = hexColor;
-
-
 });
 
 
