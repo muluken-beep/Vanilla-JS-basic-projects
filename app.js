@@ -22,7 +22,8 @@ reset.addEventListener("click", function (){
 
 increase.addEventListener("click", function (){
 let val = document.getElementById('value');
-let valInt = Number(val.innerHTML);
-valInt += 1
+val.innerHTML += 1;
+// let valInt = Number(val.innerHTML);
+// valInt += 1
 val.style.color = 'green';
 });
