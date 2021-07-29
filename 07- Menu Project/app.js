@@ -75,23 +75,52 @@ const menu = [
 
 
 
-const sectionCenter = document.getElementsByClassName("section-center");
+const sectionCenter = document.querySelector(".section-center");
+const btnContainer = document.querySelector(".btn-container");
+
+
+// //using selectors inside the element
+// const questions = document.querySelectorAll(".question");
+
+// questions.forEach(function(question){
+
+// const btn = question.querySelector(".question-btn");
+
+// btn.addEventListener("click", function(){
+
+// questions.forEach(function (item){
+//     if (item !== question){
+//         item.classList.remove("show-text");
+//     }
+// });
+// question.classList.toggle("show-text");
+//     });
+// });
+
 
 window.addEventListener('DOMContentLoaded', function(){
-  let displayMenu = menu.map(function (item){
-  return `<article class="menu-item">
-          <img src= ${item.img} class="photo" alt=${item.title}/>
-           <div class="item-info">
-          <header>
-          <h4>${item.title}</h4>
-          <h4 class="price">${item.price} </h4>
-          </header>
-          <p class="item-text">
-           ${item.desc}
-          </p>
-        </div>
-        </article>`
-  });
-  displayMenu = displayMenu.join("")
-  sectionCenter.innerHTML = displayMenu;
+  displayMenuItems(menu);
  });
+
+function displayMenuItems(menuItems){
+  let displayMenu = menuItems.map(function (item){
+    return `<article class="menu-item">
+            <img src= ${item.img} class="photo" alt=${item.title}/>
+            <div class="item-info">
+              <header>
+                <h4>${item.title}</h4>
+                <h4 class="price">${item.price} </h4>
+              </header>
+              <p class="item-text">${item.desc}</p>
+            </div>
+          </article>`
+    });
+    displayMenu = displayMenu.join("")
+    sectionCenter.innerHTML = displayMenu;
+}
+
+
+
+
+Array.prototype.forEach.call (btnContainer,
+  element => console.log(element));
