@@ -13,6 +13,7 @@
 
 //using selectors inside the element
 const questions = document.querySelectorAll(".question");
+console.log(questions);
 
 questions.forEach(function(question){
 

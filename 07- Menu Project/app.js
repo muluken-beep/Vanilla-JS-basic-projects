@@ -76,31 +76,35 @@ const menu = [
 
 
 const sectionCenter = document.querySelector(".section-center");
-const btnContainer = document.querySelector(".btn-container");
+const filterBtns = document.querySelectorAll(".filter-btn");
 
 
-// //using selectors inside the element
-// const questions = document.querySelectorAll(".question");
-
-// questions.forEach(function(question){
-
-// const btn = question.querySelector(".question-btn");
-
-// btn.addEventListener("click", function(){
-
-// questions.forEach(function (item){
-//     if (item !== question){
-//         item.classList.remove("show-text");
-//     }
-// });
-// question.classList.toggle("show-text");
-//     });
-// });
-
+// Load items
 
 window.addEventListener('DOMContentLoaded', function(){
   displayMenuItems(menu);
  });
+
+//filter items
+ filterBtns.forEach(function(btn){
+   btn.addEventListener("click", function(e){
+     const category = e.currentTarget.dataset.id;
+     const menuCategory= menu.filter(function (menuItem){
+
+      if (menuItem.category ===category){
+        return menuItem;
+      }
+     });
+    //  console.log(menuCategory);
+    if (menuItem.category ==="all"){
+      displayMenuItems(menu);
+    }
+    else{
+      displayMenuItems(menuCategory);
+    }
+   });
+ });
+
 
 function displayMenuItems(menuItems){
   let displayMenu = menuItems.map(function (item){
@@ -118,9 +122,3 @@ function displayMenuItems(menuItems){
     displayMenu = displayMenu.join("")
     sectionCenter.innerHTML = displayMenu;
 }
-
-
-
-
-Array.prototype.forEach.call (btnContainer,
-  element => console.log(element));
